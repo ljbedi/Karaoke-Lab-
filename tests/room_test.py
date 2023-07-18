@@ -14,13 +14,32 @@ class TestRoom(unittest.TestCase):
         self.guest_2 = Guest("Holly Tyler")
         self.guest_3 = Guest("Brandon Noone")
         self.guest_list = [self.guest_1, self.guest_2]
+        self.song_1 = Songs("Cuff It")
+        self.song_2 = Songs("Heated")
+        self.songs = [self.song_1, self.song_2]
 
     # def add_a_song_to_room(self, guest, room):
     #     self.room_1 = Room("Room 1", 50, self.song_1) 
 
-    def test_add_guest(self):
-        self.room_1.add_guest(self.guest_1)
-        self.assertEqual("Liam Bailey", self.guest_1)
+    def test_room_has_no_guests_at_start(self):
+        self.assertEqual(0, self.room_1.number_of_guests())
+
+    def test_check_in_guest(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.assertEqual(1, self.room_1.number_of_guests())
+
+    def test_check_out_guest(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.room_1.check_out_guest(self.guest_1)
+        self.assertEqual(0, self.room_1.number_of_guests())
+
+    def test_add_song(self):
+        Songs = ("Cuff It")
+        self.room_2.add_song(self.songs)
+        self.assertEqual(1, self.room_2.number_of_songs())
+
+
+
 
 
 
